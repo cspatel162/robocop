@@ -7,6 +7,16 @@
 
 import requests
 import argparse
+import colorama
+
+# sexify the terminal with colorama
+# creating color classes
+
+class colors():
+    redc = colorama.Fore.RED
+    bluec = colorama.Fore.BLUE
+    greenc = colorama.Fore.GREEN
+    yellowc = colorama.Fore.YELLOW
 
 parser = argparse.ArgumentParser()
 # url to look for the robots.txt
@@ -21,4 +31,4 @@ fullUrl = "https://" + args.url + "/robots.txt"
 
 response = requests.get(fullUrl)
 
-print(response.text)
+print(colors.yellowc + response.text)
