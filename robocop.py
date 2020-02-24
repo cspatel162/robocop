@@ -23,15 +23,9 @@ class colors():
 parser = argparse.ArgumentParser()
 # url to look for the robots.txt
 parser.add_argument('-u', '--url', help="the url for crawling")
-parser.add_argument('-o', '--output', required=False,
-                    help="option for saving the result into a file")
+parser.add_argument('-o', '--output', action='store_true', help="option for saving the result into a file")
 
 args = parser.parse_args()
-
-
-# creating empty file for output result
-file_forOutput = args.url + '.txt'
-nfile = open(file_forOutput, "w+")
 
 # making the complete url
 fullUrl = "https://" + args.url + "/robots.txt"
@@ -39,8 +33,12 @@ fullUrl = "https://" + args.url + "/robots.txt"
 response = requests.get(fullUrl)
 
 
-#writing the output to the file
-nfile.write(response.text)
-nfile.close()
+# writing the output to the file
+# creating empty file for output result
+if args.output:
+    file_forOutput = args.url + '.txt'
+    nfile = open(file_forOutput, "w+")
+    nfile.write(response.text)
+    nfile.close()
 
 print(colors.yellowc + response.text)
