@@ -30,11 +30,17 @@ args = parser.parse_args()
 
 
 # creating empty file for output result
-nfile = open(args.url, "w+")
+file_forOutput = args.url + '.txt'
+nfile = open(file_forOutput, "w+")
 
 # making the complete url
 fullUrl = "https://" + args.url + "/robots.txt"
 
 response = requests.get(fullUrl)
+
+
+#writing the output to the file
+nfile.write(response.text)
+nfile.close()
 
 print(colors.yellowc + response.text)
