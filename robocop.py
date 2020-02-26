@@ -41,4 +41,7 @@ if args.output:
     nfile.write(response.text)
     nfile.close()
 
-print(colors.yellowc + response.text)
+string = response.text
+string = string.replace('Disallow', colors.redc + 'Disallow')
+
+print(string)
