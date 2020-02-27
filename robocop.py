@@ -18,7 +18,7 @@ class colors():
     bluec = colorama.Fore.BLUE
     greenc = colorama.Fore.GREEN
     yellowc = colorama.Fore.YELLOW
-
+    stylec = colorama.Style.RESET_ALL
 
 parser = argparse.ArgumentParser()
 # url to look for the robots.txt
@@ -42,6 +42,11 @@ if args.output:
     nfile.close()
 
 string = response.text
-string = string.replace('Disallow', colors.redc + 'Disallow')
+
+string = string.replace('Disallow', colors.redc + 'Disallow' + colors.stylec)
+
+string = string.replace('Allow', colors.greenc + 'Allow' + colors.stylec)
+
+string = string.replace('Sitemap', colors.bluec + 'Sitemap' + colors.stylec)
 
 print(string)
