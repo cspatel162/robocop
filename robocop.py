@@ -44,9 +44,7 @@ if args.output:
 string = response.text
 
 string = string.replace('Disallow', colors.redc + 'Disallow' + colors.stylec)
-
 string = string.replace('Allow', colors.greenc + 'Allow' + colors.stylec)
-
 string = string.replace('Sitemap', colors.bluec + 'Sitemap' + colors.stylec)
 
 print(string)
