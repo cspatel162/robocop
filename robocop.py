@@ -20,10 +20,12 @@ class colors():
     yellowc = colorama.Fore.YELLOW
     stylec = colorama.Style.RESET_ALL
 
+
 parser = argparse.ArgumentParser()
 # url to look for the robots.txt
 parser.add_argument('-u', '--url', help="the url for crawling")
-parser.add_argument('-o', '--output', action='store_true', help="option for saving the result into a file")
+parser.add_argument('-o', '--output', action='store_true',
+                    help="option for saving the result into a file")
 
 args = parser.parse_args()
 
